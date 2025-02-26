@@ -1,0 +1,51 @@
+Résumé du chargement des données
+==================================================
+
+
+5m:
+- Shape: (1377633, 5)
+- Période: 2004-06-11 07:15:00 à 2025-01-31 23:55:00
+- Colonnes: Open, High, Low, Close, Volume
+- Données manquantes: 0
+
+15m:
+- Shape: (472589, 5)
+- Période: 2004-06-11 07:15:00 à 2025-01-31 23:45:00
+- Colonnes: Open, High, Low, Close, Volume
+- Données manquantes: 0
+
+30m:
+- Shape: (238089, 5)
+- Période: 2004-06-11 07:30:00 à 2025-01-31 23:30:00
+- Colonnes: Open, High, Low, Close, Volume
+- Données manquantes: 0
+
+1h:
+- Shape: (119793, 5)
+- Période: 2004-06-11 08:00:00 à 2025-01-31 23:00:00
+- Colonnes: Open, High, Low, Close, Volume
+- Données manquantes: 0
+
+4h:
+- Shape: (31544, 5)
+- Période: 2004-06-11 08:00:00 à 2025-01-31 20:00:00
+- Colonnes: Open, High, Low, Close, Volume
+- Données manquantes: 0
+
+1d:
+- Shape: (5293, 5)
+- Période: 2004-06-14 00:00:00 à 2025-01-31 00:00:00
+- Colonnes: Open, High, Low, Close, Volume
+- Données manquantes: 0
+
+1w:
+- Shape: (1076, 5)
+- Période: 2004-06-13 00:00:00 à 2025-01-26 00:00:00
+- Colonnes: Open, High, Low, Close, Volume
+- Données manquantes: 0
+
+1M:
+- Shape: (248, 5)
+- Période: 2004-07-01 00:00:00 à 2025-02-01 00:00:00
+- Colonnes: Open, High, Low, Close, Volume
+- Données manquantes: 0
