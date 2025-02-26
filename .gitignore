@@ -1,0 +1,28 @@
+# Ignorer les environnements virtuels
+venv/
+.env/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Ignorer les fichiers Python compilés
+__pycache__/
+*.py[cod]
+
+# Ignorer les fichiers de logs et caches
+*.log
+*.temp
+*.cache
+*.bak
+*.swp
+.tox/
+.nox/
+.pytest_cache/
+
+# Ignorer les fichiers système
+.DS_Store
+Thumbs.db
+
+# Ignorer les fichiers de données brutes (ajoute ici tes fichiers volumineux)
+data/raw/*.csv
