@@ -1,0 +1,13 @@
+{
+    "input_shape": [
+        15,
+        15
+    ],
+    "n_classes": 3,
+    "model_type": "auto",
+    "learning_rate": 0.001,
+    "scaler_params": {
+        "mean_": null,
+        "scale_": null
+    }
+}

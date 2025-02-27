@@ -27,6 +27,8 @@ from tensorflow.keras import backend as K
 import gc
 import tensorflow as tf
 import time  # Ajout de l'import time pour mesurer la durée d'exécution
+import json
+from pathlib import Path
 
 os.makedirs("models", exist_ok=True)
 os.makedirs("logs", exist_ok=True)
@@ -436,6 +438,24 @@ class CheckpointCallback(Callback):
             self.model.save(model_path)
             print(f"\n✓ Modèle sauvegardé à l'epoch {epoch+1}")
 
+def setup_kaggle_credentials():
+    """Configure les credentials Kaggle"""
+    try:
+        # Chemin vers le fichier kaggle.json
+        kaggle_path = Path.home() / '.kaggle' / 'kaggle.json'
+        
+        if not os.environ.get('KAGGLE_API_KEY') and kaggle_path.exists():
+            with open(kaggle_path) as f:
+                credentials = json.load(f)
+                os.environ['KAGGLE_USERNAME'] = credentials['username']
+                os.environ['KAGGLE_API_KEY'] = credentials['key']
+            print("✓ Credentials Kaggle chargés avec succès")
+        elif not kaggle_path.exists():
+            raise FileNotFoundError(f"Fichier kaggle.json non trouvé dans {kaggle_path}")
+            
+    except Exception as e:
+        raise Exception(f"Erreur lors du chargement des credentials Kaggle: {str(e)}")
+
 def train_initial_model(debug_mode=False):
     logger = setup_logging()
     
@@ -694,8 +714,8 @@ class BacktestManager:
         self.max_drawdown_pct = 0.3
         
         # Paramètres de filtrage
-        self.confidence_threshold_long = 0.7
-        self.confidence_threshold_short = 0.7
+        self.confidence_threshold_long = 0.5
+        self.confidence_threshold_short = 0.5
         self.neutral_zone = 0.4
         self.min_bars_between_trades = 12
         self.max_trades_per_day = 5
@@ -1066,7 +1086,20 @@ def calculate_backtest_statistics(bt):
 
 if __name__ == "__main__":
     try:
-        start_time = time.time()  # Enregistrer l'heure de début
+        # Configurer les credentials Kaggle avant tout
+        setup_kaggle_credentials()
+        
+        # Créer le dossier logs s'il n'existe pas
+        os.makedirs('logs', exist_ok=True)
+        
+        # Configuration du logging
+        logging.basicConfig(
+            level=logging.INFO,
+            format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+        )
+        
+        # Lancer l'entraînement directement
+        start_time = time.time()
         train_initial_model()
         
         # Calculer et afficher le temps total d'exécution

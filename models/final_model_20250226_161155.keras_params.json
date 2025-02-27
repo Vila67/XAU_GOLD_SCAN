@@ -1,0 +1,16 @@
+{
+    "input_shape": [
+        15,
+        5
+    ],
+    "n_classes": 3,
+    "model_type": "auto",
+    "learning_rate": 0.005994842503189409,
+    "lstm_units": 64,
+    "dense_units": 32,
+    "dropout_rate": 0.2,
+    "scaler_params": {
+        "mean_": null,
+        "scale_": null
+    }
+}

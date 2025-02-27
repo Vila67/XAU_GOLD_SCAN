@@ -10,7 +10,7 @@ from imblearn.combine import SMOTEENN
 from collections import Counter
 import warnings
 import os
-from src.preprocessing.technical_indicators import TechnicalIndicators
+from src.features.technical_indicators import TechnicalIndicators
 import gc
 
 class BaseDataProcessor(ABC):

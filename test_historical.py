@@ -2,6 +2,7 @@ import os
 import pandas as pd
 from src.data_collection.historical_data import HistoricalDataLoader
 
+
 def test_data_loading():
     print("Test du chargement des données historiques")
     print("="*50)

@@ -12,7 +12,7 @@ from imblearn.over_sampling import SMOTE
 import logging
 from datetime import datetime
 from src.models.ml_model import MLModel
-from src.preprocessing.technical_indicators import TechnicalIndicators
+from src.features.technical_indicators import TechnicalIndicators
 
 # Ajout du chemin racine au PYTHONPATH
 sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
@@ -1285,7 +1285,6 @@ class MLPreprocessor:
                 if col not in price_cols + ['Date', 'Volume']:
                     # Calcul des z-scores
                     z_scores = np.abs((df[col] - df[col].mean()) / df[col].std())
-                    outliers = z_scores > 3
                     
                     if outliers.any():
                         n_outliers = outliers.sum()
